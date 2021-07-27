@@ -1,0 +1,35 @@
+.newKeep, .newKeepTitle {
+    padding: 8px 10px;
+    border-radius: 5px;
+    width: 400px;
+    font-size: 1.2rem;
+    border-color: lightgrey;
+    border-style: outset;
+    margin-left: calc(50% - 200px);
+}
+.newKeepTitle {
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+}
+
+.newKeep {
+    outline: none;
+    border: none;
+    font-size: 1rem;
+}
+
+.keepForm {
+    border: thin solid rgb(190, 186, 186);
+    border-radius: 10px;
+    width: 500px;
+    padding: 15px;
+    margin-left: calc(50% - 250px);
+    box-shadow: 16px 14px 55px -38px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 16px 14px 55px -38px rgba(0,0,0,0.75);
+    -moz-box-shadow: 16px 14px 55px -38px rgba(0,0,0,0.75);
+}
+
+.confirmButton {
+    visibility: hidden;
+}

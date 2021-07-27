@@ -1,0 +1,5 @@
+.notePad {
+    display: flex;
+    flex-wrap: wrap;
+}
+

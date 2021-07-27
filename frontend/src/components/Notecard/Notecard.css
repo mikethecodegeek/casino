@@ -1,0 +1,32 @@
+.noteCard {
+   border: thin solid rgb(196, 192, 192);
+   border-radius: 5px;
+   min-height: 250px;
+   width: 250px;
+   margin: 20px;
+   padding: 25px;
+   position: relative;
+  
+}
+
+.cardButtons {
+    position:absolute;
+    bottom: 0;
+    margin-bottom: 5px;
+    width: 80%;
+}
+
+.noteCard > p {
+    font-family: 'Roboto',arial,sans-serif;
+    font-size: 25px;
+    word-wrap: break-word;
+
+}
+
+.noteCard > h2 {
+    font-family: 'Roboto',arial,sans-serif;
+}
+.cardDelete,.cardEdit {
+    font-size:1.5rem;
+    cursor: pointer;
+}

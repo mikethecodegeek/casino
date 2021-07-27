@@ -1,0 +1,35 @@
+.navbar {
+    height: 70px;
+    background-color: aliceblue;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-end;
+    padding: 20px 30px;
+}
+.logo {
+    font-size: 2.2rem;
+    font-weight: bolder;
+    margin-top: -10px;
+    font-family: 'Roboto',arial,sans-serif;
+}
+ul {
+    list-style: none;
+}
+
+.flex-apart {
+    display: flex;
+    justify-content: space-between;
+    width: 250px
+}
+
+.welcome {
+    font-size: 1.5rem;
+}
+
+.logoutBtn {
+    width: 100px;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 2px;
+}
