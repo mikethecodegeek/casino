@@ -1,4 +1,4 @@
-class Cards {
+class Deck {
     constructor() {
         this.deck = [];
         this.discardPile = [];
@@ -106,6 +106,9 @@ class Cards {
     }
 
     shuffleDeck = () => {
+        if (!this.deck.length) {
+            this.createDeck();
+        }
         for (var i = this.deck.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
             var temp = this.deck[i];
@@ -149,4 +152,4 @@ class Cards {
 
 }
 
-module.exports = Cards;
+module.exports = Deck;
