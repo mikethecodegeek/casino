@@ -3,11 +3,22 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const notesRouter = require('./notes.js');
+const Cards = require('./cards');
 
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 router.use('/notes', notesRouter);
+
+const currentDeck = new Cards();
+currentDeck.getDeck();
+currentDeck.shuffleDeck();
+console.log(currentDeck.getDeck());
+console.log(currentDeck.dealTopCard())
+console.log(currentDeck.dealTopCard())
+console.log(currentDeck.dealTopCard())
+console.log(currentDeck.getNumCards(2))
+
 
 module.exports = router;
 
