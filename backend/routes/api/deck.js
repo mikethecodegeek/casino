@@ -2,6 +2,8 @@ class Deck {
     constructor() {
         this.deck = [];
         this.discardPile = [];
+        this.dealersHand = [];
+        this.hand = [];
     }
     
     createDeck = () => {
@@ -147,6 +149,22 @@ class Deck {
         this.returnDiscardPile();
         this.shuffleDeck();
         return this.deck;
+    }
+
+    dealToPlayer = (card) => {
+        this.hand.push(card)
+    }
+
+    dealToDealer = (card) => {
+        this.dealersHand.push(card)
+    }
+
+    getPlayersHand = () => {
+        return this.hand;
+    }
+
+    getDealersHand = () => {
+        return this.dealersHand;
     }
 
 
