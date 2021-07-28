@@ -7,7 +7,22 @@ const Deck = require('../api/deck');
 const router = express.Router();
 
 const checkBlackJack = hand => {
-    console.log(hand)
+    // console.log(hand)
+    let total = 0;;
+    let ace = false
+    hand.forEach(card => {
+        console.log(card.value.val)
+        if (card.value.val == 1) ace = true;
+        if (card.value.val <= 10) {
+            total+= card.value.val;
+        } else {
+            total+=10;
+        }
+    })
+    console.log(total)
+    console.log(total ==  11 && ace == true)
+    return (total == 11 && ace == true) ? true :false;
+
 }
 
 router.get(
@@ -28,7 +43,7 @@ router.get(
           currentHand.dealToPlayer(d)
           currentHand.dealToDealer(p)
       }  
-      checkBlackJack(currentHand.dealersHand);
+      checkBlackJack(playerHand);
       return res.json({
         dealer:dealerHand[0],
         player: playerHand
