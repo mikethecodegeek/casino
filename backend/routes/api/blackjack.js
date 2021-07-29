@@ -102,7 +102,8 @@ router.get(
             dealer:dealerHand[0],
             player: deck.getPlayersHand(),
             dealerVal: dealerValue,
-            playerValue: playerValue
+            playerValue: playerValue,
+            deckData: deck.getCurrentDeck()
         });
        
 

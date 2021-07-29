@@ -168,6 +168,10 @@ class Deck {
         return this.dealersHand;
     }
 
+    getCurrentDeck = () => {
+        return this.deck;
+    }
+
 
 }
 
