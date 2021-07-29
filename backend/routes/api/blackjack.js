@@ -38,11 +38,11 @@ const calculateHand = hand => {
     return total;
 }
 
+
 router.get(
     '/newhand',
-    asyncHandler(async (req, res) => {
-      
-      const currentHand = new Deck;
+    asyncHandler(async (req, res) => { 
+      let currentHand = new Deck;
       currentHand.createDeck();
       currentHand.shuffleDeck()
       let cards = currentHand.getNumCards(4); 
@@ -68,7 +68,8 @@ router.get(
             blackJack: pBlackJack,
             insurance: "Would you like insurance?",
             dealerVal: dealerValue,
-            playerValue: playerValue
+            playerValue: playerValue,
+            deckData: currentHand
           });
       } else {
           return res.json({
@@ -76,19 +77,45 @@ router.get(
             player: playerHand,
             blackJack: pBlackJack,
             dealerVal: dealerValue,
-            playerValue: playerValue
+            playerValue: playerValue,
+            deckData: currentHand
           });
       }
 
     }),
   );
 
-  router.get(
+  router.post(
     '/hitme',
     asyncHandler(async (req, res) => {
-      
-        currentHand.dealToPlayer();
-        const handVal =calculateHand(currentHand.playerHand);
+        // currentHand.dealToPlayer();
+        // console.log(req.body)
+        // console.log("hello")
+        const {deckData,discardPile,dealersHand,hand} = req.body;
+        const deck = new Deck(deckData,discardPile,dealersHand,hand)
+        // console.log(req.body)
+        // res.json(req.body.hand[0].value.val)
+        // return
+        let dealerHand = dealersHand.map(v => {
+           return v.value.val
+        } 
+        );
+        let playerHand = hand.map(v => { 
+            return v.value.val
+        });
+        deck.dealToPlayer();
+        // res.json(deck.getPlayersHand())
+        // return
+        let playerValue = calculateHand(deck.getPlayersHand())
+        let dealerValue = dealerHand[0] > 10 ? 10 : dealerHand[0];
+
+        return res.json({
+            dealer:dealerHand[0],
+            player: deck.getPlayersHand(),
+            dealerVal: dealerValue,
+            playerValue: playerValue
+        });
+        const handVal = calculateHand(currentDeck.hand);
        
         return res.json({
             dealer:dealerHand[0],
