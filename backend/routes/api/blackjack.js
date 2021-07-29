@@ -88,24 +88,13 @@ router.get(
   router.post(
     '/hitme',
     asyncHandler(async (req, res) => {
-        // currentHand.dealToPlayer();
-        // console.log(req.body)
-        // console.log("hello")
+       
         const {deckData,discardPile,dealersHand,hand} = req.body;
         const deck = new Deck(deckData,discardPile,dealersHand,hand)
-        // console.log(req.body)
-        // res.json(req.body.hand[0].value.val)
-        // return
-        let dealerHand = dealersHand.map(v => {
-           return v.value.val
-        } 
-        );
-        let playerHand = hand.map(v => { 
-            return v.value.val
-        });
+        let dealerHand = dealersHand.map(v => v.value.val);
+        // let playerHand = hand.map(v => v.value.val);
         deck.dealToPlayer();
-        // res.json(deck.getPlayersHand())
-        // return
+       
         let playerValue = calculateHand(deck.getPlayersHand())
         let dealerValue = dealerHand[0] > 10 ? 10 : dealerHand[0];
 
@@ -115,13 +104,7 @@ router.get(
             dealerVal: dealerValue,
             playerValue: playerValue
         });
-        const handVal = calculateHand(currentDeck.hand);
        
-        return res.json({
-            dealer:dealerHand[0],
-            player: playerHand,
-            playerhandVal: handVal
-        });
 
     }),
   );
